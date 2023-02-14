@@ -1,0 +1,102 @@
+{
+  "user": [
+    {
+      "name": "Pepe pecas",
+      "password": "Test$1234",
+      "email": "ultrared808@gmail.com",
+      "gender": "masculino",
+      "role": "admin",
+      "isactive": true,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Pedro",
+      "password": "Terabyte$123",
+      "email": "spin-e@outlook.com",
+      "gender": "femenino",
+      "role": "tech",
+      "isactive": true
+    },
+    {
+      "id": 3,
+      "name": "Ana",
+      "password": "Terabyte$123",
+      "email": "some@outlook.com",
+      "gender": "femenino",
+      "role": "tech",
+      "isactive": true
+    },
+    {
+      "id": 4,
+      "name": "María Conchita Alonso",
+      "password": "Tetraedro$02",
+      "email": "some@outlook.com",
+      "gender": "masculino",
+      "role": "instructor",
+      "isactive": true
+    }
+  ],
+  "alumnos": [
+    {
+      "firstname": "Pedro Enrique",
+      "lastname": "Padilla Ruiz",
+      "email": "ultrared808@gmail.com",
+      "gender": "masculino",
+      "isactive": false,
+      "id": 1
+    }
+  ],
+  "role": [
+    {
+      "code": "admin",
+      "name": "admin"
+    },
+    {
+      "code": "user",
+      "name": "User"
+    },
+    {
+      "code": "tech",
+      "name": "Technician"
+    },
+    {
+      "code": "instructor",
+      "name": "instructor"
+    }
+  ],
+  "coursesList": [
+    {
+      "courseName": "Angular 1",
+      "category": "Frameworks",
+      "level": "Básico",
+      "price": 100.34,
+      "description": "Curso básico de Angular",
+      "id": 1
+    },
+    {
+      "courseName": "React 1",
+      "category": "Frameworks",
+      "level": "Básico",
+      "price": 23.5,
+      "description": "Curso introductorio de React",
+      "id": 2
+    },
+    {
+      "courseName": "figma",
+      "category": "Design Systems",
+      "level": "Básico",
+      "price": 12345,
+      "description": "Curso de Figma para no diseñadores",
+      "id": 3
+    },
+    {
+      "courseName": "Javascript 1 fundamentos",
+      "category": "Program languages",
+      "level": "Básico",
+      "price": 123,
+      "description": "Java script para principiantes",
+      "id": 4
+    }
+  ]
+}

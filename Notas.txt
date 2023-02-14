@@ -1,0 +1,21 @@
+raiz
+ng g c login
+ng g c updatepopup
+
+ng g c home
+ng g c userlisting
+
+admin
+n-g g c cursos
+n-g g c alumnos
+n-g g c clases
+
+sys-admin
+
+ng g c register
+
+ng g s services/auth
+ng g g guards/auth
+
+
+00:14:12

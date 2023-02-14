@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-header>
+        <h2>Lista de usuarios</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="mat-elevation-z8">
+            <!-- [dataSource]="dataSource" -->
+            <table mat-table matSort [dataSource]="dataSource">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Estatus </th>
+                    <td mat-cell *matCellDef="let element"> {{element.isactive ? 'Activo':'Inactivo'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{element.role ===''? 'No asignado':element.role}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button  mat-raised-button *ngIf="element.role !=='admin'" (click)="UpdateUser(element.id)"
+                            color="primary">Actualizar</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

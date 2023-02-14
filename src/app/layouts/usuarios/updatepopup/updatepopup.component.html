@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-header>
+        <h1>Actualizar rol del usuario</h1>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form class="example-form" [formGroup]="registerform" (ngSubmit)="UpdateUser()">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option value="">Seleccione el rol del usuario
+                    </mat-option>
+                    <mat-option *ngFor="let item of rolelist" [value]="item.code">
+                        {{item.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <section class="example-section">
+                <br>
+                <mat-checkbox formControlName="isactive" class="example-margin">Activo</mat-checkbox>
+            </section>
+
+
+            <div mat-dialog-actions>
+                <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Actualizar</button>
+                <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

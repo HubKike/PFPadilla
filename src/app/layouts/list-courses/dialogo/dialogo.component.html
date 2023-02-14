@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Add Course Form</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="courseForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Course name</mat-label>
+            <input formControlName="courseName" matInput placeholder="Course">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" placeholder="Category">
+                <mat-option value="Design Systems">Sistema de diseño</mat-option>
+                <mat-option value="Frameworks">Frameworks</mat-option>
+                <mat-option value="Program languages">Lenguajes de programación</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <label for="">
+            <h1>Levels</h1>
+        </label>
+
+        <mat-radio-group formControlName="level" class="example-radio-group">
+            <mat-radio-button class="example-radio-button" *ngFor="let level of levelList" [value]="level">
+                {{level}}
+            </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input formControlName="price" matInput type="number" placeholder="Price">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+    </form>
+
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addCourse()">{{actionBtn}}</button>
+</div>
