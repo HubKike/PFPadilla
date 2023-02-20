@@ -98,5 +98,28 @@
       "description": "Java script para principiantes",
       "id": 4
     }
+  ],
+  "cursos": [
+    {
+      "cursoClave": "string",
+      "instructorId": "string",
+      "instructor": "string",
+      "cursoId": "string",
+      "cursoNombre": "string",
+      "details": [
+        {
+          "cursoClave": "string",
+          "alumnoId": 0,
+          "alumnoNombre": "string",
+          "alumnoApellido": "string"
+        },
+        {
+          "cursoClave": "string",
+          "alumnoId": 1,
+          "alumnoNombre": "string",
+          "alumnoApellido": "string"
+        }
+      ]
+    }
   ]
 }

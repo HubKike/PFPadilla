@@ -9,13 +9,13 @@
         <table datatable class="table table-bordered">
             <thead class="bg-dark text-white">
                 <tr>
-                    <td>Invoice No</td>
-                    <td>Customer</td>
+                    <td>Clave de la clase</td>
+                    <td style="width: 70%">Curso</td>
                     <!-- <td>Remarks</td>
                     <td>Total</td>
                     <td>Tax</td>
                     <td>NetTotal</td> -->
-                    <td>Action</td>
+                    <td style="width: 15%">Action</td>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                     <td>{{item.total | currency}}</td>
                     <td>{{item.tax | currency}}</td>
                     <td>{{item.netTotal | currency}}</td> -->
-                    <td style="width: 30%">
+                    <td>
                         <!-- <a class="btn btn-primary" (click)="Editinvoice(item.invoiceNo)">Edit</a> -->
                         <a class="btn btn-primary">Edit</a> |
                         <!-- <a class="btn btn-danger" (click)="invoiceremove(item.invoiceNo)" -->
