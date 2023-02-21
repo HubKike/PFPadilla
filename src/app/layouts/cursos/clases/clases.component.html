@@ -1,8 +1,5 @@
-<!-- <p>clases works!</p> -->
-<!-- <form class="container" [formGroup]="invoiceform" (ngSubmit)="SaveInvoice()"> -->
 <form [formGroup]="formularioClase" class="container" (ngSubmit)="guardarCurso()">
     <div class="card" style="width: 1200px">
-        <!-- <h3>{{pagetitle}}</h3> -->
         <h3>Registro de cursos</h3>
 
         <div class="card-body">
@@ -20,11 +17,8 @@
                     <div class="form-group">
                         <label>Curso</label>
                         <span class="text-danger">*</span>
-                        <!-- <select formControlName="customerId" (change)="customerchange()" class="form-control"> -->
                         <select formControlName="cursoId" (change)="alCambiarCurso()" class="form-control">
-                            <!-- <option *ngFor="let item of mastercustomer" [value]="item.code"> -->
                             <option>
-                                <!-- {{item.name}} -->
                             </option>
                         </select>
                     </div>
@@ -34,38 +28,17 @@
                     <div class="form-group">
                         <label>Instrutor</label>
                         <span class="text-danger">*</span>
-                        <!-- <select formControlName="customerId" (change)="customerchange()" class="form-control"> -->
                         <select formControlName="instructorId" (change)="alCambiarInstructor()" class="form-control">
-                            <!-- <option *ngFor="let item of mastercustomer" [value]="item.code"> -->
                             <option>
-                                <!-- {{item.name}} -->
                             </option>
                         </select>
                     </div>
                 </div>
-
-
-                
-
-                <!-- <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea formControlName="deliveryAddress" class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>Remarks</label>
-                        <textarea formControlName="remarks" class="form-control"></textarea>
-                    </div>
-                </div> -->
-
             </div>
             <br>
 
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- <table class="table table-bordered" formArrayName="alumnos"> -->
                     <table class="table table-bordered" formArrayName="alumnos">
                         <thead class="bg-primary text-white">
                             <tr>
@@ -79,50 +52,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <tr *ngFor="let item of invproducts.controls; let i=index" [formGroupName]="i"> -->
-                            <tr>
-                                <!-- <td>{{i+1}}</td> -->
-                                <td></td>
+                            <tr *ngFor="let item of listaAlumnos.controls; let i=index" [formGroupName]="i">
                                 <td>
-                                    <!-- <select class="form-control" (change)="productchange(i)" formControlName="productCode"> -->
-                                        <!-- <select class="form-control" formControlName="id-alumno"> -->
-                                    <select class="form-control">
-                                        <!-- <option *ngFor="let item of masterproduct" [value]="item.code"> -->
-                                        <option>
-                                            <!-- {{item.name}} -->
-                                        </option>
-                                    </select>
+                                    {{i+1}}
                                 </td>
                                 <td>
-                                    <!-- <input class="form-control" formControlName="productName" /> -->
-                                    <input class="form-control"/>
-                                </td>
-
-                                <td>
-                                    <!-- <input class="form-control" formControlName="productName" /> -->
-                                    <input class="form-control"/>
-                                </td>
-
-                                <!-- <td>
-                                    <input class="form-control" (change)="Itemcalculation(i)" formControlName="qty" />
+                                    <select class="form-control" formControlName="alumnoId"></select>
                                 </td>
                                 <td>
-                                    <input class="form-control" (change)="Itemcalculation(i)" formControlName="salesPrice" />
+                                    <input class="form-control" formControlName="alumnoNombre">
                                 </td>
                                 <td>
-                                    <input class="form-control" formControlName="total" />
-                                </td> -->
+                                    <input class="form-control" formControlName="alumnoApellido">
+                                </td>
                                 <td style="text-align:center">
-                                    <!-- <a (click)="Removeproduct(i)" class="btn btn-danger">Remove</a> -->
                                     <a class="btn btn-danger">Borrar</a>
                                 </td>
-
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td colspan="6">
-                                    <!-- <a (click)="addnewproduct()" class="btn btn-success">[+]</a> -->
                                     <a (click)="agregarAlumno()" class="btn btn-success">[+]</a>
                                 </td>
                             </tr>
@@ -134,27 +84,8 @@
             </div>
             <br>
 
-            <div class="row">
-                <!-- <div class="col-lg-4">
-                    <div class="form-group">
-                        <label>Total alumnos</label>
-                        <input formControlName="total" class="form-control">
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-4">
-                    <div class="form-group">
-                        <label>Summary Tax</label>
-                        <input formControlName="tax" class="form-control">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="form-group">
-                        <label>Summary NetTotal</label>
-                        <input formControlName="netTotal" class="form-control">
-                    </div>
-                </div> -->
+            <div class="row">               
                 <div class="col-lg-12" style="text-align:right">
-                    <!-- <br> -->
                     <button class="btn btn-success" type="submit">Guardar</button> |
                     <a class="btn btn-danger" routerLink="/">Lista de cursos</a>
                 </div>
