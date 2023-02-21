@@ -30,15 +30,26 @@ export class ClasesComponent implements OnInit {
     this.detalleAlumnos.push(this.insertarFila());
   }
 
+  // get invproducts(){}
+  get listaAlumnos() {
+    return this.formularioClase.get("alumnos") as FormArray;
+  }
+
+
   // Generaterow()
   insertarFila() {
     return this.builder.group({
       cursoClave: this.builder.control(''),
       alumnoId: this.builder.control('', Validators.required),
-      alumnoNombre: this.builder.control(''),
-      alumnoApellido: this.builder.control(''),
+      alumnoNombre: this.builder.control({ value: '', disabled: true }),
+      alumnoApellido: this.builder.control({ value: '', disabled: true })
+
+      // alumnoNombre: this.builder.control(''),
+      // alumnoApellido: this.builder.control('')
     })
   }
+
+  
 
   // customerchange(){}
   alCambiarCurso() { }

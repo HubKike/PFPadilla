@@ -5,37 +5,21 @@
     </div>
     <div class="card-body">
 
-        <!-- <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" class="table table-bordered"> -->
         <table datatable class="table table-bordered">
             <thead class="bg-dark text-white">
                 <tr>
                     <td>Clave de la clase</td>
                     <td style="width: 70%">Curso</td>
-                    <!-- <td>Remarks</td>
-                    <td>Total</td>
-                    <td>Tax</td>
-                    <td>NetTotal</td> -->
                     <td style="width: 15%">Action</td>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor="let item of Invoiceheader"> -->
                 <tr>
-                    <!-- <td>{{item.invoiceNo}}</td> -->
                     <td></td>
-                    <!-- <td>{{item.customerName}}</td> -->
                     <td></td>
-                    <!-- <td>{{item.remarks}}</td>
-                    <td>{{item.total | currency}}</td>
-                    <td>{{item.tax | currency}}</td>
-                    <td>{{item.netTotal | currency}}</td> -->
                     <td>
-                        <!-- <a class="btn btn-primary" (click)="Editinvoice(item.invoiceNo)">Edit</a> -->
                         <a class="btn btn-primary">Edit</a> |
-                        <!-- <a class="btn btn-danger" (click)="invoiceremove(item.invoiceNo)" -->
                         <a class="btn btn-danger">Delete</a> |
-                        <!-- <a class="btn btn-success" (click)="PreviewInvoice(item.invoiceNo)">Print</a> |
-                        <a class="btn btn-success" (click)="DownloadInvoice(item.invoiceNo)">Download</a> -->
                     </td>
 
                 </tr>
@@ -49,18 +33,11 @@
 
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <!-- <h4 class="modal-title" id="modal-basic-title">Preview Invoice : <b>{{invoiceno}}</b></h4> -->
         <h4 class="modal-title" id="modal-basic-title">Preview Invoice : <b></b></h4>
-        <!-- <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button> -->
         <button type="button" class="btn-close" aria-label="Close"></button>
     </div>
 
-    <!-- <div class="modal-body">
-        <ngx-extended-pdf-viewer [src]="pdfurl"></ngx-extended-pdf-viewer>
-    </div> -->
-
     <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-danger" (click)="d('Cross click')">Close</button> -->
         <button type="button" class="btn btn-danger">Close</button>
     </div>
 </ng-template>
