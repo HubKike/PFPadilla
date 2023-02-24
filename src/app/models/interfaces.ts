@@ -13,23 +13,19 @@ export interface Role {
     name: string
 }
 
-// export interface Post {
-//     id: number;
-//     title: string;
-//     author: string;
-// }
+export interface Curso {
+    id: number;
+    category: string;
+    level: string;
+    price: string;
+    description: string;
+}
 
-// export interface Comment {
-//     id: number;
-//     body: string;
-//     postId: number;
-// }
-
-// export interface DbJson {
-//     user: User[];
-//     posts: Post[];
-//     comments: Comment[];
-//     profile: {
-//         name: string;
-//     };
-// }
+export interface Alumno {
+    id: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+    gender: string;
+    isactive: boolean;
+}

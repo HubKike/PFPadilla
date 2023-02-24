@@ -19,7 +19,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  apiurl = 'http://localhost:3000/user';
+  apiurl = 'http://localhost:3000/users';
 
   //Referencia
   // export interface Product {
@@ -57,7 +57,7 @@ export class AuthService {
   }
 
   GetAllRole() {
-    return this.http.get<Role[]>('http://localhost:3000/role');
+    return this.http.get<Role[]>('http://localhost:3000/roles');
   }
 
 

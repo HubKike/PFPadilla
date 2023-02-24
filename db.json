@@ -1,5 +1,5 @@
 {
-  "user": [
+  "users": [
     {
       "name": "Pepe pecas",
       "password": "Test$1234",
@@ -47,7 +47,7 @@
       "id": 1
     }
   ],
-  "role": [
+  "roles": [
     {
       "code": "admin",
       "name": "admin"
@@ -99,9 +99,9 @@
       "id": 4
     }
   ],
-  "cursos": [
+  "clases": [
     {
-      "cursoClave": "string",
+      "claseClave": "string",
       "instructorId": "string",
       "instructor": "string",
       "cursoId": "string",

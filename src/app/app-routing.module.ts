@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'alumnos', component: ListaAlumnosComponent },
   { path: 'listaclases', component: ListaClasesComponent },
   { path: 'agregarclase', component: ClasesComponent },  
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'login' },
 
 ];
 
