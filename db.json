@@ -45,6 +45,14 @@
       "gender": "masculino",
       "isactive": false,
       "id": 1
+    },
+    {
+      "firstname": "Adriana",
+      "lastname": "López",
+      "email": "adri@gmail.com",
+      "gender": "femenino",
+      "isactive": true,
+      "id": 2
     }
   ],
   "roles": [
@@ -101,7 +109,7 @@
   ],
   "clases": [
     {
-      "claseClave": "string",
+      "cursoClave": "string",
       "instructorId": "string",
       "instructor": "string",
       "cursoId": "string",

@@ -15,6 +15,7 @@ export interface Role {
 
 export interface Curso {
     id: number;
+    courseName: string;
     category: string;
     level: string;
     price: string;

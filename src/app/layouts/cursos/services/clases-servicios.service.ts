@@ -64,4 +64,65 @@ export class ClasesServiciosService {
     )
   }
 
+  // GetAllInvoice() { }
+  getClases() {
+    return this._http.get('http://localhost:3000/clases').pipe(
+      map((response: any) => {
+        return response.clases.map((curso: any) => {
+          return {
+            cursoClave: curso.cursoClave,
+            instructorId: curso.instructorId,
+            instructor: curso.instructor,
+            cursoId: curso.cursoId,
+            cursoNombre: curso.cursoNombre
+          };
+        });
+      })
+    );
+  }
+
+  // GetInvHeaderbycode() { }
+  getClase(cursoClave: any) {
+    return this._http.get('http://localhost:3000/clases').pipe(
+      map((response: any) => {
+        return response.clases.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
+          return {
+            cursoClave: curso.cursoClave,
+            instructorId: curso.instructorId,
+            instructor: curso.instructor,
+            cursoId: curso.cursoId,
+            cursoNombre: curso.cursoNombre
+          };
+        });
+      })
+    );
+  }
+
+  // GetInvDetailbyCode() { }
+  getlistaAlumnos(cursoClave: any) {
+    return this._http.get(`http://localhost:3000/clases/${cursoClave}/alumnos`).pipe(
+      map((response: any) => {
+        return response.details.map((alumno: any) => {
+          return {
+            cursoClave: response.cursoClave,
+            alumnoId: alumno.alumnoId,
+            alumnoNombre: alumno.alumnoNombre,
+            alumnoApellido: alumno.alumnoApellido
+          };
+        });
+      })
+    );
+  }
+
+  // RemoveInvoice(invoice: any) { }
+  borrarClase(cursoClave: any) {
+    return this._http.delete(`http://localhost:3000/clases?cursoClave=${cursoClave}`);
+  }
+  
+
+  // SaveInvoice(invoicedata: any) { }
+  guardarClase(data: any) {
+    return this._http.post("http://localhost:3000/clases/", data);
+  }
+
 }
