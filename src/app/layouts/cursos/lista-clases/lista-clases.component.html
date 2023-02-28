@@ -9,14 +9,16 @@
             <thead class="bg-dark text-white">
                 <tr>
                     <td>Clave de la clase</td>
-                    <td style="width: 70%">Curso</td>
-                    <td style="width: 15%">Action</td>
+                    <td style="width: 30%">Curso</td>
+                    <td style="width: 35%">Instructor</td>
+                    <td style="width: 20%">Action</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let item of encabezadoClase">
+                    <td>{{item.cursoClave}}</td>
+                    <td>{{item.cursoNombre}}</td>
+                    <td>{{item.instructor}}</td>
                     <td>
                         <a class="btn btn-primary">Edit</a> |
                         <a class="btn btn-danger">Delete</a> |

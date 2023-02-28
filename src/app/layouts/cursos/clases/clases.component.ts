@@ -112,7 +112,14 @@ export class ClasesComponent implements OnInit {
 
   // SaveInvoice(){}
   guardarCurso() {
+    let somedata = this.formularioClase.getRawValue();
+    console.log ("guardarCurso()", somedata)
     if (this.formularioClase.valid) {
+      this._service.guardarClase(this.formularioClase.getRawValue()).subscribe(res => {
+        let result: any;
+        result = res;
+        console.log("guardarCurso", result)
+      })
     } else {
       this._alert.warning('Ingrese los campos obligatorios', 'Validación');
     }

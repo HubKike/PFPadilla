@@ -109,11 +109,11 @@
   ],
   "clases": [
     {
-      "cursoClave": "string",
-      "instructorId": "string",
-      "instructor": "string",
-      "cursoId": "string",
-      "cursoNombre": "string",
+      "cursoClave": "curso432",
+      "instructorId": "p123",
+      "instructor": "Pablito",
+      "cursoId": "C345",
+      "cursoNombre": "Figma",
       "details": [
         {
           "cursoClave": "string",

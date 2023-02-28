@@ -68,7 +68,8 @@ export class ClasesServiciosService {
   getClases() {
     return this._http.get('http://localhost:3000/clases').pipe(
       map((response: any) => {
-        return response.clases.map((curso: any) => {
+        //return response.clases.map((curso: any) => {
+        return response.map((curso: any) => {
           return {
             cursoClave: curso.cursoClave,
             instructorId: curso.instructorId,
@@ -85,7 +86,8 @@ export class ClasesServiciosService {
   getClase(cursoClave: any) {
     return this._http.get('http://localhost:3000/clases').pipe(
       map((response: any) => {
-        return response.clases.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
+        //return response.clases.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
+        return response.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
           return {
             cursoClave: curso.cursoClave,
             instructorId: curso.instructorId,
@@ -122,6 +124,7 @@ export class ClasesServiciosService {
 
   // SaveInvoice(invoicedata: any) { }
   guardarClase(data: any) {
+    console.log("guardarClase", data)
     return this._http.post("http://localhost:3000/clases/", data);
   }
 
