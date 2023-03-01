@@ -109,23 +109,52 @@
   ],
   "clases": [
     {
-      "cursoClave": "curso432",
-      "instructorId": "p123",
-      "instructor": "Pablito",
-      "cursoId": "C345",
-      "cursoNombre": "Figma",
-      "details": [
+      "id": 1,
+      "cursoClave": "inv001",
+      "cursoId": "1",
+      "cursoNombre": "Angular 1",
+      "instructorId": "4",
+      "instructor": "María Conchita Alonso",
+      "alumnos": [
         {
-          "cursoClave": "string",
-          "alumnoId": 0,
-          "alumnoNombre": "string",
-          "alumnoApellido": "string"
+          "cursoClave": "inv001",
+          "alumnoNombre": "Pedro Enrique",
+          "alumnoApellido": "Padilla Ruiz"
         },
         {
-          "cursoClave": "string",
-          "alumnoId": 1,
-          "alumnoNombre": "string",
-          "alumnoApellido": "string"
+          "cursoClave": "inv001",
+          "alumnoNombre": "Adriana",
+          "alumnoApellido": "López"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cursoClave": "inv 3",
+      "cursoId": "4",
+      "cursoNombre": "Javascript 1 fundamentos",
+      "instructorId": "4",
+      "instructor": "María Conchita Alonso",
+      "alumnos": [
+        {
+          "cursoClave": "inv 3",
+          "alumnoNombre": "Pedro Enrique",
+          "alumnoApellido": "Padilla Ruiz"
+        },
+        {
+          "cursoClave": "inv 3",
+          "alumnoNombre": "Adriana",
+          "alumnoApellido": "López"
+        },
+        {
+          "cursoClave": "inv 3",
+          "alumnoNombre": "Pedro Enrique",
+          "alumnoApellido": "Padilla Ruiz"
+        },
+        {
+          "cursoClave": "inv 3",
+          "alumnoNombre": "Adriana",
+          "alumnoApellido": "López"
         }
       ]
     }
