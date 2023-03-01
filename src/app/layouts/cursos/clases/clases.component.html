@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label>Curso</label>
                         <span class="text-danger">*</span>
-                        <select formControlName="cursoId" class="form-control">
+                        <select formControlName="cursoId" (change)="cambiarCurso()" class="form-control">
                             <option *ngFor="let item of masterCurso" [value]="item.id">
                                 {{item.courseName}}
                             </option>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label>Instrutor</label>
                         <span class="text-danger">*</span>
-                        <select formControlName="instructorId" class="form-control">
+                        <select formControlName="instructorId" (change)="cambiarInstructor()" class="form-control">
                             <option *ngFor="let item of masterInstructor" [value]="item.id">
                                 {{item.name}}
                             </option>

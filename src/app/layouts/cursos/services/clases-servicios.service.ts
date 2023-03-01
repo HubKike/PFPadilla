@@ -71,6 +71,7 @@ export class ClasesServiciosService {
         //return response.clases.map((curso: any) => {
         return response.map((curso: any) => {
           return {
+            id: curso.id,
             cursoClave: curso.cursoClave,
             instructorId: curso.instructorId,
             instructor: curso.instructor,
@@ -89,6 +90,7 @@ export class ClasesServiciosService {
         //return response.clases.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
         return response.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
           return {
+            id: curso.id,
             cursoClave: curso.cursoClave,
             instructorId: curso.instructorId,
             instructor: curso.instructor,
@@ -120,7 +122,6 @@ export class ClasesServiciosService {
   borrarClase(cursoClave: any) {
     return this._http.delete(`http://localhost:3000/clases?cursoClave=${cursoClave}`);
   }
-  
 
   // SaveInvoice(invoicedata: any) { }
   guardarClase(data: any) {
