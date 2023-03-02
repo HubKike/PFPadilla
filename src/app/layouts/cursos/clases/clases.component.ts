@@ -183,7 +183,14 @@ export class ClasesComponent implements OnInit {
         alumnos: this.generateAlumnosArray()
       };
       this._service.guardarClase(claseData).subscribe((response) => {
-        console.log('Respuesta del servidor:', response);
+        let result:any;
+        result = response;
+        console.log("Resultado inserción", result);
+        if(String(result) === 'pass'){
+          this._alert.success('Curso registrado', 'curso: ' + result.result);
+        }else{
+          this._alert.error('Error al guardar curso', 'Cursos');
+        }
       });
     } else {
       this._alert.warning('Ingrese los campos obligatorios', 'Validación');

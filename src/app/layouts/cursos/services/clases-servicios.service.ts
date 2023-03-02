@@ -126,7 +126,16 @@ export class ClasesServiciosService {
   // SaveInvoice(invoicedata: any) { }
   guardarClase(data: any) {
     console.log("guardarClase", data)
-    return this._http.post("http://localhost:3000/clases/", data);
+    return this._http.post("http://localhost:3000/clases/", data)
+    .pipe(
+      map((response:any) => {
+        if(!response.error){
+          return "pass";
+        }else{
+          throw new Error(response.error);
+        }
+      })
+    );
   }
 
 }
