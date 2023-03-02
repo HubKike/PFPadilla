@@ -110,19 +110,19 @@
   "clases": [
     {
       "id": 1,
-      "cursoClave": "inv001",
+      "cursoClave": "abc",
       "cursoId": "1",
       "cursoNombre": "Angular 1",
       "instructorId": "4",
       "instructor": "María Conchita Alonso",
       "alumnos": [
         {
-          "cursoClave": "inv001",
+          "cursoClave": "abc",
           "alumnoNombre": "Pedro Enrique",
           "alumnoApellido": "Padilla Ruiz"
         },
         {
-          "cursoClave": "inv001",
+          "cursoClave": "abc",
           "alumnoNombre": "Adriana",
           "alumnoApellido": "López"
         }
@@ -130,19 +130,19 @@
     },
     {
       "id": 2,
-      "cursoClave": "sdfsdfg",
-      "cursoId": "1",
-      "cursoNombre": "Angular 1",
+      "cursoClave": "ert567",
+      "cursoId": "3",
+      "cursoNombre": "figma",
       "instructorId": "4",
       "instructor": "María Conchita Alonso",
       "alumnos": [
         {
-          "cursoClave": "sdfsdfg",
+          "cursoClave": "ert567",
           "alumnoNombre": "Pedro Enrique",
           "alumnoApellido": "Padilla Ruiz"
         },
         {
-          "cursoClave": "sdfsdfg",
+          "cursoClave": "ert567",
           "alumnoNombre": "Adriana",
           "alumnoApellido": "López"
         }
