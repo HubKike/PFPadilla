@@ -130,29 +130,19 @@
     },
     {
       "id": 2,
-      "cursoClave": "inv 3",
-      "cursoId": "4",
-      "cursoNombre": "Javascript 1 fundamentos",
+      "cursoClave": "sdfsdfg",
+      "cursoId": "1",
+      "cursoNombre": "Angular 1",
       "instructorId": "4",
       "instructor": "María Conchita Alonso",
       "alumnos": [
         {
-          "cursoClave": "inv 3",
+          "cursoClave": "sdfsdfg",
           "alumnoNombre": "Pedro Enrique",
           "alumnoApellido": "Padilla Ruiz"
         },
         {
-          "cursoClave": "inv 3",
-          "alumnoNombre": "Adriana",
-          "alumnoApellido": "López"
-        },
-        {
-          "cursoClave": "inv 3",
-          "alumnoNombre": "Pedro Enrique",
-          "alumnoApellido": "Padilla Ruiz"
-        },
-        {
-          "cursoClave": "inv 3",
+          "cursoClave": "sdfsdfg",
           "alumnoNombre": "Adriana",
           "alumnoApellido": "López"
         }
