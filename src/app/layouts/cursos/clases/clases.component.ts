@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Curso, User, Alumno } from '../../../models/interfaces';
 import { ClasesServiciosService } from '../services/clases-servicios.service';
 
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-clases',
   templateUrl: './clases.component.html',
@@ -12,7 +14,7 @@ import { ClasesServiciosService } from '../services/clases-servicios.service';
 })
 export class ClasesComponent implements OnInit {
 
-  constructor(private builder: FormBuilder, private _service: ClasesServiciosService, private _alert: ToastrService) { }
+  constructor(private builder: FormBuilder, private _service: ClasesServiciosService, private _alert: ToastrService, private _router: Router) { }
 
   masterInstructor!: User[];
   masterCurso!: Curso[];
@@ -108,7 +110,6 @@ export class ClasesComponent implements OnInit {
     this.rowsFormAlumnos = this.formularioClase.get("alumnos") as FormArray;
     this.rowAlumno = this.rowsFormAlumnos.at(index) as FormGroup;
     let claveAlumno = +this.rowAlumno.get("alumnoId")?.value;
-    console.log('claveAlumno', claveAlumno);
     this._service.getAlumnoId(claveAlumno).subscribe(res => {
       let datosAlumno: any;
       datosAlumno = res;
@@ -167,7 +168,6 @@ export class ClasesComponent implements OnInit {
       };
       alumnosArr.push(alumno);
     }
-    console.log("generateAlumnosArray", alumnosArr)
     return alumnosArr;
   }
 
@@ -188,6 +188,7 @@ export class ClasesComponent implements OnInit {
         console.log("Resultado inserción", result);
         if(String(result) === 'pass'){
           this._alert.success('Curso registrado', 'curso: ' + result.result);
+          this._router.navigate(['/listaclases'])
         }else{
           this._alert.error('Error al guardar curso', 'Cursos');
         }

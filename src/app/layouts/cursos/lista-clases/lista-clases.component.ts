@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClasesServiciosService } from '../services/clases-servicios.service';
-import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+//import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-clases',
@@ -9,7 +11,7 @@ import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 })
 export class ListaClasesComponent implements OnInit {
 
-  constructor(private _service: ClasesServiciosService) { }
+  constructor(private _service: ClasesServiciosService, private _alert: ToastrService, private _router: Router) { }
 
   ngOnInit(): void {
     this.obtenerClases()
@@ -21,8 +23,26 @@ export class ListaClasesComponent implements OnInit {
   //LoadInvoice() { }
   obtenerClases() {
     this._service.getClases().subscribe(res => {
-      console.log("obtenerClases", res)
       this.encabezadoClase = res;
+    })
+  }
+
+  editarClase(id: number){
+    
+  }
+
+  borrarClase(id: number){
+    console.log("borrarClase: ", id);
+    this._service.borrarClase(id).subscribe(respose=>{
+      let result:any;
+        result = respose;
+        console.log("Resultado eliminación", result);
+        if(String(result) === 'pass'){
+          this._alert.success('Curso eliminado', 'curso: ' + result.result);
+          this.obtenerClases();
+        }else{
+          this._alert.error('Error al eliminar el curso', 'Cursos');
+        }
     })
   }
 

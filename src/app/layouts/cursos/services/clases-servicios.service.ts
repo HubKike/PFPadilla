@@ -119,8 +119,18 @@ export class ClasesServiciosService {
   }
 
   // RemoveInvoice(invoice: any) { }
-  borrarClase(cursoClave: any) {
-    return this._http.delete(`http://localhost:3000/clases?cursoClave=${cursoClave}`);
+  borrarClase(id: number) {
+    //return this._http.delete(`http://localhost:3000/clases?id=${id}`)
+    return this._http.delete(`http://localhost:3000/clases/${id}`)
+    .pipe(
+      map((response:any) => {
+        if(!response.error){
+          return "pass";
+        }else{
+          throw new Error(response.error);
+        }
+      })
+    );
   }
 
   // SaveInvoice(invoicedata: any) { }

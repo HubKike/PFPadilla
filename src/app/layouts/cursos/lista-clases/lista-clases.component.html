@@ -20,8 +20,8 @@
                     <td>{{item.cursoNombre}}</td>
                     <td>{{item.instructor}}</td>
                     <td>
-                        <a class="btn btn-primary">Edit</a> |
-                        <a class="btn btn-danger">Delete</a> |
+                        <a class="btn btn-primary" (click)="editarClase(item.id)" >Edit</a> |
+                        <a class="btn btn-danger" (click)="borrarClase(item.id)">Delete</a> |
                     </td>
 
                 </tr>
