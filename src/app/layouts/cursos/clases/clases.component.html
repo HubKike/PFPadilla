@@ -1,6 +1,6 @@
 <form [formGroup]="formularioClase" class="container" (ngSubmit)="guardarCurso()">
     <div class="card" style="width: 1200px">
-        <h3>Registro de cursos</h3>
+        <h3>{{titulopagina}}</h3>
 
         <div class="card-body">
 
@@ -72,7 +72,7 @@
                                     <input class="form-control" formControlName="alumnoApellido">
                                 </td>
                                 <td style="text-align:center">
-                                    <a class="btn btn-danger">Borrar</a>
+                                    <a (click)="borrarAlumno(i)" class="btn btn-danger">Borrar</a>
                                 </td>
                             </tr>
                         </tbody>

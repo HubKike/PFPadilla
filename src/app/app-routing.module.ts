@@ -19,7 +19,10 @@ const routes: Routes = [
   { path: 'cursos', component: ListadoComponent },
   { path: 'alumnos', component: ListaAlumnosComponent },
   { path: 'listaclases', component: ListaClasesComponent },
-  { path: 'agregarclase', component: ClasesComponent },  
+  { path: 'agregarclase', component: ClasesComponent },
+
+  {component: ClasesComponent, path:"editarclase/:id"},
+
   { path: '**', redirectTo: 'login' },
 
 ];

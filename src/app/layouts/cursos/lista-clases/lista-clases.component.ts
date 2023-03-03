@@ -27,22 +27,20 @@ export class ListaClasesComponent implements OnInit {
     })
   }
 
-  editarClase(id: number){
-    
+  editarClase(id: number) {
+    this._router.navigateByUrl('/editarclase/' + id);
   }
 
-  borrarClase(id: number){
-    console.log("borrarClase: ", id);
-    this._service.borrarClase(id).subscribe(respose=>{
-      let result:any;
-        result = respose;
-        console.log("Resultado eliminación", result);
-        if(String(result) === 'pass'){
-          this._alert.success('Curso eliminado', 'curso: ' + result.result);
-          this.obtenerClases();
-        }else{
-          this._alert.error('Error al eliminar el curso', 'Cursos');
-        }
+  borrarClase(id: number) {
+    this._service.borrarClase(id).subscribe(respose => {
+      let result: any;
+      result = respose;
+      if (String(result) === 'pass') {
+        this._alert.success('Curso eliminado', 'curso: ' + result.result);
+        this.obtenerClases();
+      } else {
+        this._alert.error('Error al eliminar el curso', 'Cursos');
+      }
     })
   }
 

@@ -14,11 +14,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ClasesComponent implements OnInit {
 
-  constructor(private builder: FormBuilder, private _service: ClasesServiciosService, private _alert: ToastrService, private _router: Router) { }
+  constructor(private builder: FormBuilder, private _service: ClasesServiciosService,
+    private _alert: ToastrService, private _router: Router, private _activeroute: ActivatedRoute) { }
 
+  titulopagina = 'Registro de cursos';
   masterInstructor!: User[];
   masterCurso!: Curso[];
   masterAlumno!: Alumno[];
+
+  editarCurso: any;
+  esedicion = false;
+  asistenciaCurso: any;
 
   //Formulario
   rowsFormAlumnos!: FormArray<any>;
@@ -38,6 +44,38 @@ export class ClasesComponent implements OnInit {
     this.getInstructores();
     this.getCursos();
     this.getAlumnos();
+
+    this.editarCurso = this._activeroute.snapshot.paramMap.get('id');
+    if (this.editarCurso != null) {
+      this.titulopagina = "Editar curso";
+      this.esedicion = true;
+      this.seteditcurso(Number(this.editarCurso));
+    }
+  }
+
+  seteditcurso(id: number) {
+    this._service.getClaseAsistencia(id).subscribe((asistencia: any) => {
+      this.asistenciaCurso = asistencia;
+      for (let i = 0; i < this.asistenciaCurso.length; i++) {
+        this.agregarAlumno();
+      }
+    })
+
+    this._service.getClase(id).subscribe((res: any) => {
+      let datosEdicion: any;
+      datosEdicion = res;
+      if (datosEdicion != null) {
+        this.formularioClase.setValue({
+          id: datosEdicion.id,
+          cursoClave: datosEdicion.cursoClave,
+          cursoId: datosEdicion.cursoId,
+          cursoNombre: datosEdicion.cursoNombre,
+          instructorId: datosEdicion.instructorId,
+          instructor: datosEdicion.instructor,
+          alumnos: this.asistenciaCurso
+        })
+      }
+    })
   }
 
   // addnewproduct
@@ -45,7 +83,7 @@ export class ClasesComponent implements OnInit {
     this.rowsFormAlumnos = this.formularioClase.get("alumnos") as FormArray;
     let claveCurso = this.formularioClase.get("cursoId")?.value;
     let claveInstructor = this.formularioClase.get("instructorId")?.value;
-    if (claveCurso != null && claveCurso != '' && claveInstructor != null && claveInstructor != '') {
+    if ((claveCurso != null && claveCurso != '' && claveInstructor != null && claveInstructor != '') || this.esedicion) {
       this.rowsFormAlumnos.push(this.insertarFila());
     } else {
       this._alert.warning('Campos Instructor y Curso son obligatorios', 'Validación');
@@ -61,7 +99,7 @@ export class ClasesComponent implements OnInit {
   insertarFila() {
     return this.builder.group({
       cursoClave: this.builder.control(''),
-      alumnoId: this.builder.control('', Validators.required),
+      alumnoId: Number(this.builder.control('', Validators.required)),
       alumnoNombre: this.builder.control({ value: '', disabled: true }),
       alumnoApellido: this.builder.control({ value: '', disabled: true }),
 
@@ -122,39 +160,9 @@ export class ClasesComponent implements OnInit {
     })
   }
 
-  // SaveInvoice(){}
-  // guardarCurso() {
-  //   let somedata = this.formularioClase.getRawValue();
-  //   console.log ("guardarCurso()", somedata)
-  //   if (this.formularioClase.valid) {
-  //     this._service.guardarClase(this.formularioClase.getRawValue()).subscribe(res => {
-  //       let result: any;
-  //       result = res;
-  //       console.log("guardarCurso", result)
-  //     })
-  //   } else {
-  //     this._alert.warning('Ingrese los campos obligatorios', 'Validación');
-  //   }
-  // }
-
-  // guardarCurso() {
-  //   if (this.formularioClase.valid) {
-  //     const data = {
-  //       cursoClave: this.formularioClase.get('cursoClave')?.value,
-  //       cursoId: this.formularioClase.get('cursoId')?.value,
-  //       cursoNombre: this.formularioClase.get('cursoNombre')?.value,
-  //       instructorId: this.formularioClase.get('instructorId')?.value,
-  //       instructor: this.formularioClase.get('instructor')?.value,
-  //       alumnos: this.formularioClase.get('alumnos')?.getRawValue()
-  //     };
-  //     this._service.guardarClase(data).subscribe(() => {
-  //       // Aquí puedes agregar código para acalizar la lista de clases en el componente
-  //       });
-  //     console.log("Formulario", data);
-  //   } else {
-  //     this._alert.warning('Ingrese los campos obligatorios', 'Validación');
-  //   }
-  // }
+  borrarAlumno(id: number) {
+    this.listaAlumnos.removeAt(id);
+  }
 
   generateAlumnosArray(): any[] {
     const alumnosArr = [];
@@ -162,12 +170,13 @@ export class ClasesComponent implements OnInit {
     for (let i = 0; i < rawAlumnos.length; i++) {
       const alumno = {
         cursoClave: this.formularioClase.get('cursoClave')?.value,
-        alumnoId: rawAlumnos[i].alumnoId.value,
+        alumnoId: Number(rawAlumnos[i].alumnoId),
         alumnoNombre: rawAlumnos[i].alumnoNombre,
         alumnoApellido: rawAlumnos[i].alumnoApellido
       };
       alumnosArr.push(alumno);
     }
+    console.log("generateAlumnosArray", alumnosArr);
     return alumnosArr;
   }
 
@@ -182,20 +191,35 @@ export class ClasesComponent implements OnInit {
         instructor: this.formularioClase.get('instructor')?.value,
         alumnos: this.generateAlumnosArray()
       };
-      this._service.guardarClase(claseData).subscribe((response) => {
-        let result:any;
-        result = response;
-        console.log("Resultado inserción", result);
-        if(String(result) === 'pass'){
-          this._alert.success('Curso registrado', 'curso: ' + result.result);
-          this._router.navigate(['/listaclases'])
-        }else{
-          this._alert.error('Error al guardar curso', 'Cursos');
+
+      if (this.esedicion) {
+        let _id = this.formularioClase.get('id')?.value;
+        this._service.actualizarClase(Number(_id), claseData).subscribe(response => {
+          let result: any;
+          result = response;
+          if (String(result) === 'pass') {
+            this._alert.success('Curso actualizado', 'curso: ' + result.result);
+            this._router.navigate(['/listaclases'])
+          } else {
+            this._alert.error('Error al actualizar el curso', 'Cursos');
+          }
+        })
+      } else {
+        if (this.formularioClase.valid) {
+          this._service.guardarClase(claseData).subscribe((response) => {
+            let result: any;
+            result = response;
+            if (String(result) === 'pass') {
+              this._alert.success('Curso registrado', 'curso: ' + result.result);
+              this._router.navigate(['/listaclases'])
+            } else {
+              this._alert.error('Error al guardar curso', 'Cursos');
+            }
+          });
+        } else {
+          this._alert.warning('Ingrese los campos obligatorios', 'Validación');
         }
-      });
-    } else {
-      this._alert.warning('Ingrese los campos obligatorios', 'Validación');
+      }
     }
   }
-
 }

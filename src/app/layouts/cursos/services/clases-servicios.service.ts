@@ -83,24 +83,51 @@ export class ClasesServiciosService {
     );
   }
 
-  // GetInvHeaderbycode() { }
-  getClase(cursoClave: any) {
+  getClase(id: number) {
     return this._http.get('http://localhost:3000/clases').pipe(
       map((response: any) => {
-        //return response.clases.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
-        return response.find((curso: any) => curso.cursoClave === cursoClave).map((curso: any) => {
-          return {
-            id: curso.id,
-            cursoClave: curso.cursoClave,
-            instructorId: curso.instructorId,
-            instructor: curso.instructor,
-            cursoId: curso.cursoId,
-            cursoNombre: curso.cursoNombre
-          };
-        });
+        const filteredClases = response.filter((clase: { id: number; cursoClave: string; instructorId: string; instructor: string; cursoId: string; cursoNombre: string; alumnos: Array<any>; }) => clase.id === id);
+        const clase = filteredClases[0];
+        // const alumnos = clase.alumnos.map((alumno: any) => {
+        //   return {
+        //     alumnoId: alumno.alumnoId,
+        //     cursoClave: alumno.cursoClave,
+        //     alumnoNombre: alumno.alumnoNombre,
+        //     alumnoApellido: alumno.alumnoApellido
+        //   };
+        // });
+        return {
+          id: clase.id,
+          cursoClave: clase.cursoClave,
+          instructorId: clase.instructorId,
+          instructor: clase.instructor,
+          cursoId: clase.cursoId,
+          cursoNombre: clase.cursoNombre
+          // , alumnos: alumnos
+        };
       })
     );
   }
+
+  getClaseAsistencia(id: number) {
+    return this._http.get('http://localhost:3000/clases').pipe(
+      map((response: any) => {
+        const clase = response.find((clase: any) => clase.id === id);
+        if (clase) {
+          return clase.alumnos.map((alumno: any) => {
+            return {
+              alumnoId: alumno.alumnoId,
+              cursoClave: alumno.cursoClave,
+              alumnoNombre: alumno.alumnoApellido,
+              alumnoApellido: alumno.alumnoApellido
+            }
+          });
+        } else {
+          throw new Error(`No se encontró ninguna clase con el id ${id}`);
+        }
+      })
+    );
+}
 
   // GetInvDetailbyCode() { }
   getlistaAlumnos(cursoClave: any) {
@@ -122,26 +149,37 @@ export class ClasesServiciosService {
   borrarClase(id: number) {
     //return this._http.delete(`http://localhost:3000/clases?id=${id}`)
     return this._http.delete(`http://localhost:3000/clases/${id}`)
-    .pipe(
-      map((response:any) => {
-        if(!response.error){
-          return "pass";
-        }else{
-          throw new Error(response.error);
-        }
-      })
-    );
+      .pipe(
+        map((response: any) => {
+          if (!response.error) {
+            return "pass";
+          } else {
+            throw new Error(response.error);
+          }
+        })
+      );
   }
 
   // SaveInvoice(invoicedata: any) { }
   guardarClase(data: any) {
-    console.log("guardarClase", data)
     return this._http.post("http://localhost:3000/clases/", data)
-    .pipe(
-      map((response:any) => {
-        if(!response.error){
+      .pipe(
+        map((response: any) => {
+          if (!response.error) {
+            return "pass";
+          } else {
+            throw new Error(response.error);
+          }
+        })
+      );
+  }
+
+  actualizarClase(id: number, data: any) {
+    return this._http.put(`http://localhost:3000/clases/${id}`, data).pipe(
+      map((response: any) => {
+        if (!response.error) {
           return "pass";
-        }else{
+        } else {
           throw new Error(response.error);
         }
       })

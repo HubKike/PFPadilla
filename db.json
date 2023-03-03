@@ -110,39 +110,33 @@
   "clases": [
     {
       "id": 1,
-      "cursoClave": "abc",
-      "cursoId": "1",
-      "cursoNombre": "Angular 1",
+      "cursoClave": "dfsdf",
+      "cursoId": "2",
+      "cursoNombre": "React 1",
       "instructorId": "4",
       "instructor": "María Conchita Alonso",
       "alumnos": [
         {
-          "cursoClave": "abc",
+          "cursoClave": "dfsdf",
+          "alumnoId": 1,
           "alumnoNombre": "Pedro Enrique",
           "alumnoApellido": "Padilla Ruiz"
         },
         {
-          "cursoClave": "abc",
+          "cursoClave": "dfsdf",
+          "alumnoId": 2,
           "alumnoNombre": "Adriana",
           "alumnoApellido": "López"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "cursoClave": "ert567",
-      "cursoId": "3",
-      "cursoNombre": "figma",
-      "instructorId": "4",
-      "instructor": "María Conchita Alonso",
-      "alumnos": [
+        },
         {
-          "cursoClave": "ert567",
+          "cursoClave": "dfsdf",
+          "alumnoId": 1,
           "alumnoNombre": "Pedro Enrique",
           "alumnoApellido": "Padilla Ruiz"
         },
         {
-          "cursoClave": "ert567",
+          "cursoClave": "dfsdf",
+          "alumnoId": 2,
           "alumnoNombre": "Adriana",
           "alumnoApellido": "López"
         }
