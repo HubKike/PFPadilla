@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   result: any;
 
   loginform = this.builder.group({
-    email: this.builder.control('ultrared808@gmail.com', Validators.compose([Validators.required, Validators.email])),
+    email: this.builder.control('someuser@somedomain.com', Validators.compose([Validators.required, Validators.email])),
     password: this.builder.control('Test$1234', Validators.required)
   });
 

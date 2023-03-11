@@ -3,7 +3,7 @@
     {
       "name": "Pepe pecas",
       "password": "Test$1234",
-      "email": "ultrared808@gmail.com",
+      "email": "someuser@somedomain.com",
       "gender": "masculino",
       "role": "admin",
       "isactive": true,
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "Pedro",
       "password": "Terabyte$123",
-      "email": "spin-e@outlook.com",
+      "email": "spinx@outlook.com",
       "gender": "femenino",
       "role": "tech",
       "isactive": true
@@ -41,7 +41,7 @@
     {
       "firstname": "Pedro Enrique",
       "lastname": "Padilla Ruiz",
-      "email": "ultrared808@gmail.com",
+      "email": "someuser@somedomain.com",
       "gender": "masculino",
       "isactive": false,
       "id": 1
